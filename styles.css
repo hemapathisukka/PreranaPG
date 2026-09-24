@@ -503,7 +503,7 @@
     font-weight:700;
     font-size:60vw;
     line-height:1;
-    color:rgba(239,233,218,0.05);
+    color:rgba(30,42,46,0.16);
     pointer-events:none;
     user-select:none;
     white-space:nowrap;
@@ -511,8 +511,8 @@
   .landing-watermark-img{
     position:absolute;
     inset:0;
-    width:60%;
-    height:60%;
+    width:1200%;
+    height:120%;
     margin:auto;
     object-fit:contain;
     opacity:0.06;
