@@ -1,312 +1,52 @@
+<!--
+  ============================================================
+  PRERANA PG'S — LANDING PAGE
+  This file: index.html
+  Paired with: styles.css   (must be in the SAME folder)
+  This is the first page visitors see. It links to two separate
+  detail pages: boys.html and girls.html — keep all three files
+  and styles.css together in the same folder when you upload.
+  ============================================================
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Prerana PG's — Feels like home</title>
+<title>Prerana PG's — Boys &amp; Girls PG in Bengaluru</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="landing-body">
 
-<header>
-  <div class="header-inner">
-    <div class="brand">Prerana <span>PG's</span></div>
-    <nav>
-      <a href="#why">Why us</a>
-      <a href="#rooms">Rooms &amp; rent</a>
-      <a href="#amenities">Amenities</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#location">Location</a>
-      <a href="#enquire" class="btn btn-primary nav-cta">Enquire now</a>
-    </nav>
-  </div>
-</header>
+  <!-- EDIT: this giant faded "P" is a placeholder logo watermark. If you have a real logo file,
+       replace this whole .landing-watermark div with: <img class="landing-watermark-img" src="your-logo.png" alt=""> -->
+  <img class="landing-watermark-img" src="C:\Users\hp\Downloads\PGweb\BoysPG\BoysPG-reception.jpeg" alt=""> 
 
-<section class="hero">
-  <div class="wrap hero-inner">
-    <div>
-      <div class="eyebrow-tag">Now accepting new residents</div>
-      <h1>A furnished room, a full kitchen, and no landlord calls at 9pm.</h1>
-      <p class="lead">Prerana PG's is built for people who work full days and don't want their evenings eaten up by chores, cooking, or chasing a broker. Move in with a suitcase — everything else is already set up.</p>
-      <div class="hero-ctas">
-        <a href="#enquire" class="btn btn-primary">Check room availability</a>
-        <a href="#rooms" class="btn btn-ghost">See rent &amp; room types</a>
-      </div>
-      <div class="stat-row">
-        <div class="stat"><b>₹6000–18,000</b><span>per month, all-inclusive</span></div>
-        <div class="stat"><b>3 meals</b><span>cooked on-site, daily</span></div>
-        <div class="stat"><b>&lt; 5 min</b><span>to nearby tech &amp; business parks</span></div>
+  <main class="landing-main">
+    <div class="landing-content">
+      <div class="landing-badge">Paying Guest Accommodation · Bengaluru</div>
+      <h1>Prerana PG's</h1>
+      <p class="landing-about">
+        Furnished rooms, home-style meals three times a day, wifi, housekeeping and
+        power backup — all in one flat monthly rent.no long lock-in,
+        move in with a suitcase.
+      </p>
+
+      <div class="landing-choice">
+        <a href="boys.html" class="landing-option">
+          <span class="landing-option-title">Boys PG</span>
+          <span class="landing-option-sub">Rooms, rent, food &amp; photos →</span>
+        </a>
+        <a href="girls.html" class="landing-option">
+          <span class="landing-option-title">Girls PG</span>
+          <span class="landing-option-sub">Rooms, rent, food &amp; photos →</span>
+        </a>
       </div>
     </div>
-    <div>
-      <div class="building">
-        <div class="room-block"></div>
-        <div class="room-block lit"></div>
-        <div class="room-block"></div>
-        <div class="room-block lit"></div>
-        <div class="room-block"></div>
-        <div class="room-block"></div>
-        <div class="room-block"></div>
-        <div class="room-block lit"></div>
-        <div class="room-block"></div>
-      </div>
-      <p class="building-caption">Single, double, and shared rooms across three floors — lit windows are occupied, the rest are open.</p>
-    </div>
-  </div>
-</section>
-
-<section id="why">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">Why residents stay</div>
-      <h2>Run for people who work, not for people who party.</h2>
-      <p>Prerana PG's keeps things quiet, clean, and predictable — the three things a full-time job actually needs from where you sleep.</p>
-    </div>
-    <div class="why-grid">
-      <div class="why-card">
-        <h3>Fixed monthly cost</h3>
-        <p>Rent, meals, wifi, housekeeping, and utilities are one number. No separate electricity bill, no surprise maintenance charge.</p>
-      </div>
-      <div class="why-card">
-        <h3>Built around office hours</h3>
-        <p>Breakfast starts early for morning shifts, and the kitchen keeps dinner warm for anyone coming in late from work.</p>
-      </div>
-      <div class="why-card">
-        <h3>No long lock-in</h3>
-        <p>Month-to-month stays are welcome — useful if you're new to the city or your project location hasn't been finalised yet.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="rooms" class="section-alt">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">Rooms &amp; rent</div>
-      <h2>Four ways to room, one flat monthly rate.</h2>
-      <p>Every plan includes meals, wifi, housekeeping, and power backup. Prices below are typical starting rates — confirm the current rate for your move-in date when you enquire.</p>
-    </div>
-      <div class="room-card">
-        <div class="room-photo">
-          <!-- EDIT: replace this src with a real photo of your 3-bed shared room -->
-          <img src="https://placehold.co/500x340/E4DCC7/1E2A2E?text=Shared+Room+Photo" alt="Shared 3-bed room at Prerana PG's" loading="lazy">
-        </div>
-        <div class="room-type">Shared, 4-bed</div>
-        <div class="room-price">₹6,000<small>/month</small></div>
-        <ul class="room-list">
-          <li>Cot, mattress &amp; wardrobe per person</li>
-          <li>attached washroom</li>
-        </ul>
-      </div>
-	  <div class="room-card">
-        <div class="room-photo">
-          <!-- EDIT: replace this src with a real photo of your 3-bed shared room -->
-          <img src="https://placehold.co/500x340/E4DCC7/1E2A2E?text=Shared+Room+Photo" alt="Shared 3-bed room at Prerana PG's" loading="lazy">
-        </div>
-        <div class="room-type">Shared, 3-bed</div>
-        <div class="room-price">₹7,000<small>/month</small></div>
-        <ul class="room-list">
-          <li>Cot, mattress &amp; wardrobe per person</li>
-          <li>attached washroom</li>
-        </ul>
-      </div>
-      <div class="room-card featured">
-        <div class="room-photo">
-          <!-- EDIT: replace this src with a real photo of your double sharing room -->
-          <img src="https://placehold.co/500x340/E4DCC7/1E2A2E?text=Double+Sharing+Photo" alt="Double sharing room at Prerana PG's" loading="lazy">
-        </div>
-        <div class="room-type">Double sharing</div>
-        <div class="room-price">₹9,000<small>/month</small></div>
-        <ul class="room-list">
-          <li>2 residents per room, attached washroom</li>
-          <li>Study table and personal locker each</li>
-          <li>Most booked plan</li>
-        </ul>
-      </div>
-      <div class="room-card">
-        <div class="room-photo">
-          <!-- EDIT: replace this src with a real photo of your single occupancy room -->
-          <img src="https://placehold.co/500x340/E4DCC7/1E2A2E?text=Single+Room+Photo" alt="Single occupancy room at Prerana PG's" loading="lazy">
-        </div>
-        <div class="room-type">Single occupancy</div>
-        <div class="room-price">₹18,000<small>/month</small></div>
-        <ul class="room-list">
-          <li>Private room with attached washroom</li>
-          <li>Quietest option, limited units available</li>
-          <li>Preferred by longer-term residents</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="gallery" class="section-alt">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">A look inside</div>
-      <h2>What a normal day at Prerana PG's looks like.</h2>
-    </div>
-    <div class="gallery-grid">
-      <figure class="gallery-item">
-        <!-- EDIT: replace this src with a real photo of a meal / dining area -->
-        <img src="https://placehold.co/600x420/E4DCC7/1E2A2E?text=Food+%2F+Dining+Photo" alt="Meals served at Prerana PG's" loading="lazy">
-        <figcaption>Meals, served fresh three times a day</figcaption>
-      </figure>
-      <figure class="gallery-item">
-        <!-- EDIT: replace this src with a real photo of the common lounge -->
-        <img src="https://placehold.co/600x420/E4DCC7/1E2A2E?text=Resting+%2F+Lounge+Photo" alt="Common resting area at Prerana PG's" loading="lazy">
-        <figcaption>The common lounge, for downtime after work</figcaption>
-      </figure>
-    </div>
-  </div>
-</section>
-
-<section id="amenities">
-  <div class="wrap">
-    <div class="section-head">
-      <div class="kicker">What's included</div>
-      <h2>Everything that turns a room into a place to actually live.</h2>
-    </div>
-    <div class="amenity-grid">
-      <div class="amenity"><h4>Home-style meals</h4><p>Breakfast, lunch, and dinner, cooked fresh each day.</p></div>
-      <div class="amenity"><h4>High-speed wifi</h4><p>High Speed internet available 24*7.</p></div>
-      <div class="amenity"><h4>Hot water</h4><p>24x7 hot water in every room, round the year.</p></div>
-	  <div class="amenity"><h4>self cooking</h4><p>Washing machine access with a set weekly slot per resident.</p></div>
-	  <div class="amenity"><h4>Study Table</h4><p>Study Table available for two and sigle sharing rooms.</p></div>
-      <div class="amenity"><h4>Housekeeping</h4><p>Rooms and common areas cleaned on a fixed weekly schedule.</p></div>
-      <div class="amenity"><h4>Laundry</h4><p>Washing machine access with a set weekly slot per resident.</p></div>
-      <div class="amenity"><h4>Power backup</h4><p>Inverter backup covers lights and fans during outages.</p></div>
-      <div class="amenity"><h4>24x7 security</h4><p>Access-controlled entry and on-site caretaker at night.</p></div>
-      <div class="amenity"><h4>Common lounge</h4><p>TV and seating area for calls, downtime, or catching up.</p></div>
-      <div class="amenity"><h4>Visitor-friendly</h4><p>Guests welcome in common areas during daytime hours.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="location" class="section-alt">
-  <div class="wrap location-grid">
-    <div>
-      <div class="kicker">Location</div>
-      <p style="margin-top:14px; color:#3A4448;">Prerana PG's is in [424, Sri Venugopal Swamy Temple St, Vyalikaval HBCS Layout, Nagavara, Bengaluru, Karnataka 560045]</p>
-      <ul class="location-list">
-        <li><span>Nearest tech park</span><span>[distance - 550 m / Manyata Tech park]</span></li>
-		<li><span>Nearest tech park</span><span>[distance - 800 m / Carle Tech park]</span></li>
-        <li><span>Nearest metro / bus stop</span><span>[distance - 600 m / Nagavara Bus Stop]</span></li>
-      </ul>
-    </div>
-    <div>
-      <div class="map-embed">
-        <!-- EDIT: replace the text after "q=" with your exact address (URL-encoded) to point the pin correctly -->
-        <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3886.947566969969!2d77.61904037359027!3d13.039009513399847!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17093d1214d9%3A0x7bf650137cbd3012!2sPrerana%20Queens%20PG!5e0!3m2!1sen!2sin!4v1789818991325!5m2!1sen!2sin"
-          width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="Prerana PG's location">
-        </iframe>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="enquire">
-  <div class="wrap">
-    <div class="form-shell">
-      <div>
-        <div class="section-head" style="margin-bottom:0;">
-          <div class="kicker" style="color:var(--ochre);">Book a visit</div>
-          <h2>Ready to see a room?</h2>
-          <p>Fill this in and it opens a WhatsApp message to us with your details already filled — send it and we'll reply with availability and a visit time.</p>
-        </div>
-        <p class="form-note">Prefer a call? Reach us directly at [+918884913332] or [preranapg.2017@gmail.com].</p>
-      </div>
-      <form id="enquiry-form">
-        <div class="field-row">
-          <div class="field">
-            <label for="name">Full name</label>
-            <input id="name" name="name" type="text" placeholder="Your name" required>
-          </div>
-          <div class="field">
-            <label for="phone">Phone number</label>
-            <input id="phone" name="phone" type="tel" placeholder="10-digit number" required>
-          </div>
-        </div>
-        <div class="field-row">
-          <div class="field">
-            <label for="roomtype">Room type</label>
-            <select id="roomtype" name="roomtype">
-              <option>Shared, 4-bed</option>
-			  <option>Shared, 3-bed</option>
-              <option>Double sharing</option>
-              <option>Single Sharing</option>
-              <option>Not sure yet</option>
-            </select>
-          </div>
-		  <div class="field-row">
-          <div class="field">
-            <label for="PG Type">PG type</label>
-            <select id="PG type" name="PG type">
-              <option>Boys, PG</option>
-			  <option>Girls, PG</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="movein">Preferred move-in</label>
-            <input id="movein" name="movein" type="date">
-          </div>
-        </div>
-        <button type="submit" class="btn-send">Send enquiry on WhatsApp</button>
-        <div class="form-status" id="form-status"></div>
-      </form>
-    </div>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap footer-inner">
-    <div>Prerana PG's — Nagavara, Bengaluru</div>
-    <div><a href="mailto:preranapg.2017@gmail.com">preranapg.2017@gmail.com</a> &nbsp;·&nbsp; <a href="tel:+918884913332">+91 8884913332</a></div>
-  </div>
-
-</footer>
-
-<script>
-  // EDIT THIS: replace with your PG's WhatsApp number in country-code format, digits only (no + or spaces).
-  const WHATSAPP_NUMBER = "8884913332";
-
-  const form = document.getElementById('enquiry-form');
-  const status = document.getElementById('form-status');
-
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-
-    const name = document.getElementById('name').value.trim();
-    const phone = document.getElementById('phone').value.trim();
-    const roomtype = document.getElementById('roomtype').value;
-    const movein = document.getElementById('movein').value;
-    const message = document.getElementById('message').value.trim();
-
-    if(!name || !phone){
-      status.textContent = "Please add your name and phone number.";
-      status.style.color = "#E2A16B";
-      return;
-    }
-
-    let text = `Hi, I'd like to enquire about a room at Prerana PG's.%0A%0A`;
-    text += `Name: ${encodeURIComponent(name)}%0A`;
-    text += `Phone: ${encodeURIComponent(phone)}%0A`;
-    text += `Room type: ${encodeURIComponent(roomtype)}%0A`;
-    if(movein){ text += `Preferred move-in: ${encodeURIComponent(movein)}%0A`; }
-    if(message){ text += `Message: ${encodeURIComponent(message)}%0A`; }
-
-    const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${text}`;
-    status.textContent = "Opening WhatsApp with your details filled in...";
-    status.style.color = "rgba(239,233,218,0.75)";
-    window.open(url, '_blank');
-  });
-</script>
+  </main>
 
 </body>
 </html>
