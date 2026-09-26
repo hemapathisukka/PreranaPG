@@ -1,591 +1,515 @@
-/*
-  ============================================================
-  PRERANA PG'S — STYLESHEET
-  This file: styles.css
-  Paired with: index.html   (must be in the SAME folder as this file)
-  index.html loads this file via <link rel="stylesheet" href="styles.css">
-  in its <head>. If you rename this file, update that line too.
-  ============================================================
-*/
+/* ==========================================================================
+   NESTPOINT PG — SHARED STYLESHEET
+   Used by index.html, boys.html and girls.html.
+   Organised in modules, each with a short note on why it exists, so the
+   site is easy to re-skin later (swap the CUSTOMIZE tokens at the top).
+   ========================================================================== */
 
-  :root{
-    --ink:#1E2A2E;
-    --paper:#EFE9DA;
-    --paper-2:#E4DCC7;
-    --ochre:#C98A2C;
-    --brick:#A84B32;
-    --sage:#5B7065;
-    --line: rgba(30,42,46,0.16);
-    --radius: 4px;
-  }
-  *{ box-sizing:border-box; }
-  html{ scroll-behavior:smooth; }
-  body{
-    margin:0;
-    background:var(--paper);
-    color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
-    font-size:16px;
-    line-height:1.6;
-  }
-  h1,h2,h3,.display{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    line-height:1.08;
-    margin:0;
-    color:var(--ink);
-  }
-  a{ color:inherit; }
-  .wrap{
-    max-width:1120px;
-    margin:0 auto;
-    padding:0 32px;
-  }
-  @media (max-width:640px){
-    .wrap{ padding:0 20px; }
-  }
+/* --------------------------------------------------------------------------
+   1. DESIGN TOKENS
+   Why: every colour, font and radius used on the site is declared once here.
+   To re-theme the whole site (new PG name/brand colour), only this block
+   needs to change.
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand palette — light blue & white primary theme, dark blue accent */
+  --blue-50:  #EAF5FC;   /* page background wash */
+  --blue-100: #D6EAF8;   /* alternate section background */
+  --blue-200: #BFE0F5;   /* card borders, dividers */
+  --blue-600: #1C6FA3;   /* primary accent — buttons, links, icons */
+  --blue-700: #155A85;   /* primary accent hover */
+  --blue-900: #0B3B54;   /* dark blue accent — headings, footer, nav bg */
+  --white:    #FFFFFF;
+  --gray-700: #3A4750;   /* body text */
+  --gray-500: #6B7A82;   /* muted/secondary text */
+  --green-600:#2F8F5B;   /* "available" status only — functional, not decorative */
+  --amber-600:#B4791F;   /* "limited" status only */
+  --red-600:  #B23A3A;   /* "full" status only */
 
-  /* ---------- Header ---------- */
-  header{
-    position:sticky; top:0; z-index:50;
-    background:var(--paper);
-    border-bottom:1px solid var(--line);
-  }
-  .header-inner{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:18px 32px;
-    max-width:1120px; margin:0 auto;
-  }
-  .brand{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:1.3rem;
-    letter-spacing:-0.01em;
-  }
-  .brand span{ color:var(--brick); }
-  nav{ display:flex; gap:28px; align-items:center; }
-  nav a{
-    text-decoration:none;
-    font-size:0.94rem;
-    color:var(--ink);
-    opacity:0.75;
-    transition:opacity 0.15s ease;
-  }
-  nav a:hover{ opacity:1; }
-  .btn{
-    display:inline-block;
-    padding:11px 22px;
-    border-radius:var(--radius);
-    text-decoration:none;
-    font-weight:500;
-    font-size:0.94rem;
-    border:1px solid transparent;
-    cursor:pointer;
-    transition:transform 0.12s ease, box-shadow 0.12s ease;
-  }
-  .btn:active{ transform:translateY(1px); }
-  .btn-primary{
-    background:var(--brick);
-    color:var(--paper);
-  }
-  .btn-primary:hover{ box-shadow:0 4px 14px rgba(168,75,50,0.35); }
-  .btn-ghost{
-    border-color:var(--ink);
-    color:var(--ink);
-    background:transparent;
-  }
-  .nav-cta{ display:inline-block; }
-  @media (max-width:820px){
-    nav a:not(.nav-cta){ display:none; }
-  }
+  /* Typography — one serif for headlines (warmth/trust), one sans for UI */
+  --font-display: "Fraunces", "Georgia", serif;
+  --font-body: "Manrope", "Segoe UI", sans-serif;
 
-  /* ---------- Hero ---------- */
-  .hero{
-    padding:76px 0 64px;
-    border-bottom:1px solid var(--line);
-  }
-  .hero-inner{
-    display:grid;
-    grid-template-columns:1.1fr 0.9fr;
-    gap:56px;
-    align-items:center;
-  }
-  @media (max-width:880px){
-    .hero-inner{ grid-template-columns:1fr; }
-  }
-  .eyebrow-tag{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    font-size:0.85rem;
-    color:var(--sage);
-    margin-bottom:18px;
-  }
-  .eyebrow-tag::before{
-    content:"";
-    width:7px; height:7px;
-    border-radius:50%;
-    background:var(--sage);
-    display:inline-block;
-  }
-  .hero h1{
-    font-size:clamp(2.2rem, 4.2vw, 3.4rem);
-    max-width:11ch;
-  }
-  .hero p.lead{
-    margin-top:20px;
-    font-size:1.08rem;
-    max-width:46ch;
-    color:#3A4448;
-  }
-  .hero-ctas{
-    margin-top:32px;
-    display:flex;
-    gap:14px;
-    flex-wrap:wrap;
-  }
-  .stat-row{
-    margin-top:44px;
-    display:flex;
-    gap:36px;
-    flex-wrap:wrap;
-  }
-  .stat b{
-    font-family:'Fraunces', serif;
-    font-size:1.5rem;
-    display:block;
-    color:var(--brick);
-  }
-  .stat span{
-    font-size:0.85rem;
-    color:#5A6468;
-  }
+  /* Layout */
+  --radius-lg: 20px;
+  --radius-md: 14px;
+  --radius-sm: 8px;
+  --shadow-card: 0 6px 24px rgba(11, 59, 84, 0.10);
+  --shadow-card-hover: 0 12px 32px rgba(11, 59, 84, 0.16);
+  --container: 1180px;
+  --nav-height: 76px;
+}
 
-  /* hero graphic: a drawn "building" made of stacked room blocks */
-  .building{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:10px;
-    background:var(--ink);
-    padding:20px;
-    border-radius:6px;
-  }
-  .room-block{
-    aspect-ratio:1/0.85;
-    border-radius:3px;
-    background:var(--paper-2);
-    position:relative;
-    overflow:hidden;
-  }
-  .room-block::after{
-    content:"";
-    position:absolute; inset:0;
-    background:
-      linear-gradient(135deg, transparent 46%, rgba(30,42,46,0.14) 47%, rgba(30,42,46,0.14) 49%, transparent 50%);
-  }
-  .room-block.lit{ background:var(--ochre); }
-  .room-block.lit::after{ display:none; }
-  .building-caption{
-    margin-top:12px;
-    font-size:0.82rem;
-    color:#5A6468;
-    text-align:center;
-  }
+/* --------------------------------------------------------------------------
+   2. RESET & BASE
+   Why: normalises browser defaults so the design system above renders
+   consistently across devices.
+   -------------------------------------------------------------------------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
 
-  /* ---------- Section shells ---------- */
-  section{ padding:72px 0; }
-  .section-alt{ background:var(--paper-2); }
-  .kicker{
-    font-size:0.85rem;
-    color:var(--sage);
-    margin-bottom:10px;
-  }
-  .section-head{
-    max-width:60ch;
-    margin-bottom:44px;
-  }
-  .section-head h2{
-    font-size:clamp(1.7rem, 3vw, 2.3rem);
-  }
-  .section-head p{
-    margin-top:14px;
-    color:#3A4448;
-    font-size:1.02rem;
-  }
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: var(--nav-height); /* so anchor jumps clear the sticky nav */
+}
 
-  /* ---------- About / why ---------- */
-  .why-grid{
-    display:grid;
-    grid-template-columns:repeat(3, 1fr);
-    gap:1px;
-    background:var(--line);
-    border:1px solid var(--line);
-  }
-  @media (max-width:760px){
-    .why-grid{ grid-template-columns:1fr; }
-  }
-  .why-card{
-    background:var(--paper);
-    padding:32px 28px;
-  }
-  .why-card h3{
-    font-size:1.1rem;
-    margin-bottom:10px;
-  }
-  .why-card p{
-    font-size:0.95rem;
-    color:#3A4448;
-    margin:0;
-  }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: 0.001ms !important; transition-duration: 0.001ms !important; }
+}
 
-  /* ---------- Room plans ---------- */
-  .room-grid{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:24px;
-  }
-  @media (max-width:820px){
-    .room-grid{ grid-template-columns:1fr; }
-  }
-  .room-card{
-    border:1px solid var(--line);
-    border-radius:6px;
-    padding:28px;
-    background:var(--paper);
-    display:flex;
-    flex-direction:column;
-    gap:14px;
-  }
-  .room-card.featured{
-    border-color:var(--brick);
-    box-shadow:0 6px 20px rgba(168,75,50,0.12);
-  }
-  .room-photo{
-    margin:-28px -28px 4px;
-    border-radius:6px 6px 0 0;
-    overflow:hidden;
-    aspect-ratio:5/3.4;
-  }
-  .room-photo img{
-    width:100%; height:100%;
-    object-fit:cover;
-    display:block;
-  }
-  .room-type{
-    font-family:'Fraunces', serif;
-    font-size:1.25rem;
-  }
-  .room-price{
-    font-size:1.6rem;
-    font-weight:600;
-    font-family:'Fraunces', serif;
-    color:var(--brick);
-  }
-  .room-price small{
-    font-family:'IBM Plex Sans', sans-serif;
-    font-size:0.85rem;
-    font-weight:400;
-    color:#5A6468;
-  }
-  .room-list{
-    list-style:none;
-    padding:0; margin:0;
-    display:flex; flex-direction:column; gap:8px;
-    font-size:0.92rem;
-    color:#3A4448;
-  }
-  .room-list li{
-    padding-left:18px;
-    position:relative;
-  }
-  .room-list li::before{
-    content:"";
-    position:absolute; left:0; top:0.55em;
-    width:6px; height:6px;
-    background:var(--sage);
-    border-radius:50%;
-  }
+body {
+  font-family: var(--font-body);
+  color: var(--gray-700);
+  background: var(--blue-50);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
 
-  /* ---------- Gallery ---------- */
-  .gallery-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:24px;
-  }
-  @media (max-width:700px){
-    .gallery-grid{ grid-template-columns:1fr; }
-  }
-  .gallery-item{
-    margin:0;
-    border-radius:6px;
-    overflow:hidden;
-    border:1px solid var(--line);
-    background:var(--paper);
-  }
-  .gallery-item img{
-    width:100%;
-    aspect-ratio:6/4.2;
-    object-fit:cover;
-    display:block;
-  }
-  .gallery-item figcaption{
-    padding:14px 18px;
-    font-size:0.92rem;
-    color:#3A4448;
-  }
+img { max-width: 100%; display: block; }
 
-  /* ---------- Amenities ---------- */
-  .amenity-grid{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:28px 24px;
-  }
-  @media (max-width:760px){
-    .amenity-grid{ grid-template-columns:repeat(2, 1fr); }
-  }
-  .amenity{
-    display:flex; flex-direction:column; gap:6px;
-    border-top:2px solid var(--ink);
-    padding-top:14px;
-  }
-  .amenity h4{
-    font-size:0.98rem;
-    margin:0;
-    font-weight:600;
-  }
-  .amenity p{
-    margin:0;
-    font-size:0.88rem;
-    color:#5A6468;
-  }
+a { color: inherit; text-decoration: none; }
 
-  /* ---------- Location ---------- */
-  .location-grid{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:48px;
-    align-items:start;
-  }
-  @media (max-width:820px){
-    .location-grid{ grid-template-columns:1fr; }
-  }
-  .map-embed{
-    width:100%;
-    aspect-ratio:4/3;
-    border-radius:6px;
-    overflow:hidden;
-    border:1px solid var(--line);
-    margin-bottom:24px;
-  }
-  .location-list{
-    list-style:none; padding:0; margin:24px 0 0;
-    display:flex; flex-direction:column;
-  }
-  .location-list li{
-    display:flex; justify-content:space-between; gap:16px;
-    padding:14px 0;
-    border-bottom:1px solid var(--line);
-    font-size:0.96rem;
-  }
-  .location-list li span:last-child{
-    color:#5A6468;
-  }
+ul { list-style: none; }
 
-  /* ---------- Enquiry form ---------- */
-  .form-shell{
-    background:var(--ink);
-    color:var(--paper);
-    border-radius:8px;
-    padding:48px;
-    display:grid;
-    grid-template-columns:0.9fr 1.1fr;
-    gap:48px;
-  }
-  @media (max-width:820px){
-    .form-shell{ grid-template-columns:1fr; padding:32px 24px; }
-  }
-  .form-shell h2{ color:var(--paper); }
-  .form-shell .section-head p{ color:rgba(239,233,218,0.75); }
-  .form-note{
-    margin-top:24px;
-    font-size:0.88rem;
-    color:rgba(239,233,218,0.6);
-  }
-  form{ display:flex; flex-direction:column; gap:16px; }
-  .field label{
-    display:block;
-    font-size:0.85rem;
-    margin-bottom:6px;
-    color:rgba(239,233,218,0.8);
-  }
-  .field input, .field select, .field textarea{
-    width:100%;
-    background:rgba(239,233,218,0.06);
-    border:1px solid rgba(239,233,218,0.28);
-    border-radius:4px;
-    padding:11px 12px;
-    color:var(--paper);
-    font-family:'IBM Plex Sans', sans-serif;
-    font-size:0.95rem;
-  }
-  .field input::placeholder, .field textarea::placeholder{ color:rgba(239,233,218,0.35); }
-  .field input:focus, .field select:focus, .field textarea:focus{
-    outline:2px solid var(--ochre);
-    outline-offset:1px;
-  }
-  .field-row{ display:grid; grid-template-columns:1fr 1fr; gap:14px; }
-  @media (max-width:480px){ .field-row{ grid-template-columns:1fr; } }
-  .btn-send{
-    background:var(--ochre);
-    color:var(--ink);
-    border:none;
-    padding:13px 22px;
-    border-radius:4px;
-    font-weight:600;
-    font-size:0.98rem;
-    cursor:pointer;
-    margin-top:6px;
-  }
-  .btn-send:hover{ filter:brightness(1.05); }
-  .form-status{
-    font-size:0.88rem;
-    margin-top:4px;
-    min-height:1.2em;
-  }
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  color: var(--blue-900);
+  line-height: 1.15;
+  font-weight: 600;
+}
 
-  /* ---------- Footer ---------- */
-  footer{
-    padding:40px 0 60px;
-    border-top:1px solid var(--line);
-  }
-  .footer-inner{
-    display:flex;
-    justify-content:space-between;
-    flex-wrap:wrap;
-    gap:20px;
-    font-size:0.88rem;
-    color:#5A6468;
-  }
-  .footer-inner a{ text-decoration:none; color:var(--brick); }
+h1 { font-size: clamp(2.1rem, 4vw, 3.4rem); }
+h2 { font-size: clamp(1.6rem, 2.6vw, 2.3rem); }
+h3 { font-size: 1.25rem; }
 
-  /* ---------- Header: PG-specific tag & cross-link (boys.html / girls.html) ---------- */
-  .brand-tag{
-    font-family:'IBM Plex Sans', sans-serif;
-    font-size:0.8rem;
-    font-weight:500;
-    color:var(--sage);
-    margin-left:6px;
-    vertical-align:middle;
-  }
-  nav a.nav-switch{
-    color:var(--brick);
-    font-weight:500;
-  }
+p { max-width: 68ch; }
 
-  /* ---------- Landing page (index.html) ---------- */
-  .landing-body{
-    min-height:100vh;
-    margin:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    position:relative;
-    overflow:hidden;
-    background:linear-gradient(160deg, #E8F5E9 0%, #FFFFFF 100%, #E0F2E1 40%);
-  }
-  .landing-watermark{
-    position:absolute;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-family:'Fraunces', serif;
-    font-weight:700;
-    font-size:60vw;
-    line-height:1;
-    color:rgba(30,42,46,0.16);
-    pointer-events:none;
-    user-select:none;
-    white-space:nowrap;
-  }
-  .landing-watermark-img{
-    position:absolute;
-    inset:0;
-    width:1200%;
-    height:1200%;
-    margin:auto;
-    object-fit:contain;
-    opacity:0.06;
-    pointer-events:none;
-    user-select:none;
-  }
-  .landing-main{
-    position:relative;
-    z-index:1;
-    width:100%;
-  }
-  .landing-content{
-    max-width:640px;
-    margin:0 auto;
-    padding:32px;
-    text-align:center;
-  }
-  .landing-badge{
-    font-size:0.85rem;
-    letter-spacing:0.04em;
-    text-transform:uppercase;
-    color:var(--sage);
-    margin-bottom:18px;
-  }
-  .landing-content h1{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    color:var(--paper);
-    font-size:clamp(2.4rem, 7vw, 3.8rem);
-  }
-  .landing-about{
-    margin-top:20px;
-    font-size:1.05rem;
-    line-height:1.65;
-    color:rgba(239,233,218,0.8);
-  }
-  .landing-choice{
-    margin-top:44px;
-    display:flex;
-    gap:20px;
-    justify-content:center;
-    flex-wrap:wrap;
-  }
-  .landing-option{
-    display:flex;
-    flex-direction:column;
-    gap:6px;
-    padding:24px 36px;
-    min-width:200px;
-    border-radius:8px;
-    border:1px solid rgba(239,233,218,0.25);
-    text-decoration:none;
-    color:var(--paper);
-    transition:background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
-  }
-  .landing-option:hover{
-    background:rgba(239,233,218,0.08);
-    border-color:var(--ochre);
-    transform:translateY(-2px);
-  }
-  .landing-option-title{
-    font-family:'Fraunces', serif;
-    font-weight:600;
-    font-size:1.3rem;
-  }
-  .landing-option-sub{
-    font-size:0.85rem;
-    color:rgba(239,233,218,0.6);
-  }
+/* Visible keyboard focus everywhere — accessibility floor */
+a:focus-visible, button:focus-visible, input:focus-visible,
+textarea:focus-visible, select:focus-visible {
+  outline: 3px solid var(--blue-700);
+  outline-offset: 2px;
+}
 
-  :focus-visible{ outline:2px solid var(--brick); outline-offset:2px; }
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 24px;
+}
 
-  @media (prefers-reduced-motion: reduce){
-    html{ scroll-behavior:auto; }
-    *{ transition:none !important; }
+.section { padding: 88px 0; }
+.section-alt { background: var(--blue-100); }
+
+.section-head { max-width: 640px; margin-bottom: 44px; }
+.section-head p { color: var(--gray-500); margin-top: 10px; }
+
+.visually-hidden {
+  position: absolute; width: 1px; height: 1px;
+  overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap;
+}
+
+/* --------------------------------------------------------------------------
+   3. BUTTONS
+   Why: one consistent set of call-to-action styles used across all pages
+   (hero CTAs, room enquiry buttons, form submit).
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.95rem;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+.btn:hover { transform: translateY(-2px); }
+
+.btn-primary { background: var(--blue-600); color: var(--white); }
+.btn-primary:hover { background: var(--blue-700); box-shadow: var(--shadow-card-hover); }
+
+.btn-outline { background: transparent; color: var(--white); border-color: var(--white); }
+.btn-outline:hover { background: var(--white); color: var(--blue-900); }
+
+.btn-dark { background: var(--blue-900); color: var(--white); }
+.btn-dark:hover { background: #082a3c; }
+
+.btn-block { width: 100%; }
+
+/* --------------------------------------------------------------------------
+   4. STICKY NAVIGATION
+   Why: primary wayfinding across all three pages; stays visible on scroll
+   so "Book Now" / enquiry is always one tap away.
+   -------------------------------------------------------------------------- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--blue-200);
+}
+
+.navbar {
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.brand { display: flex; align-items: center; gap: 10px; } /* logo, top-left as required */
+.brand img { width: 40px; height: 40px; border-radius: 10px; }
+.brand-name {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--blue-900);
+}
+.brand-name span { color: var(--blue-600); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.nav-links a { color: var(--blue-900); padding: 6px 2px; border-bottom: 2px solid transparent; }
+.nav-links a:hover, .nav-links a.active { border-color: var(--blue-600); color: var(--blue-600); }
+
+.nav-actions { display: flex; align-items: center; gap: 14px; }
+
+.nav-toggle {
+  display: none;
+  width: 44px; height: 44px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--blue-200);
+  background: var(--white);
+  cursor: pointer;
+}
+.nav-toggle span, .nav-toggle::before, .nav-toggle::after {
+  content: ""; display: block; width: 20px; height: 2px;
+  background: var(--blue-900); margin: 5px auto; transition: 0.2s;
+}
+
+@media (max-width: 920px) {
+  .nav-links {
+    position: absolute; top: var(--nav-height); left: 0; right: 0;
+    background: var(--white);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 24px;
+    gap: 18px;
+    border-bottom: 1px solid var(--blue-200);
+    display: none;
   }
+  .nav-links.open { display: flex; }
+  .nav-toggle { display: block; }
+  .nav-actions .btn-primary { padding: 10px 18px; font-size: 0.85rem; }
+}
+
+/* --------------------------------------------------------------------------
+   5. HERO SECTIONS
+   Why: shared treatment for the full-width photo hero used on all three
+   pages — logo watermark + overlay keeps text legible over any photo.
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  min-height: 640px;
+  display: flex;
+  align-items: center;
+  color: var(--white);
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+
+/* Transparent dark overlay so white headline text stays readable */
+.hero::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(11,59,84,0.78) 0%, rgba(11,59,84,0.55) 55%, rgba(11,59,84,0.85) 100%);
+}
+
+/* Large, faint logo watermark on the hero photo, as required */
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -60px; bottom: -60px;
+  width: 420px; height: 420px;
+  background: url("logo.svg") no-repeat center / contain;
+  opacity: 0.10;
+  pointer-events: none;
+}
+
+.hero-content { position: relative; z-index: 2; max-width: 680px; }
+.hero-content p.eyebrow { display: none; } /* content encodes hierarchy via size, not caption labels */
+.hero-content h1 { color: var(--white); }
+.hero-content .lead { color: #EAF5FC; font-size: 1.15rem; margin: 18px 0 30px; }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* --------------------------------------------------------------------------
+   6. ABOUT / SPLIT SECTIONS
+   Why: reusable image+text layout for "About Our PG" and safety sections.
+   -------------------------------------------------------------------------- */
+.split {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 56px;
+  align-items: center;
+}
+.split img { border-radius: var(--radius-lg); box-shadow: var(--shadow-card); }
+.split.reverse { grid-template-columns: 1fr 1.1fr; }
+.split.reverse .split-media { order: 2; }
+
+.pillars { display: flex; gap: 22px; margin-top: 26px; flex-wrap: wrap; }
+.pillar { display: flex; gap: 10px; align-items: flex-start; max-width: 220px; }
+.pillar svg { flex-shrink: 0; color: var(--blue-600); }
+.pillar strong { display: block; color: var(--blue-900); font-size: 0.95rem; }
+.pillar span { font-size: 0.85rem; color: var(--gray-500); }
+
+@media (max-width: 860px) {
+  .split, .split.reverse { grid-template-columns: 1fr; }
+  .split.reverse .split-media { order: 0; }
+}
+
+/* --------------------------------------------------------------------------
+   7. CARD GRIDS (rooms, facilities, food, gallery)
+   Why: one card component reused for every "browse options" pattern on
+   the site, per the brief's "clean cards with rounded corners" request.
+   -------------------------------------------------------------------------- */
+.grid {
+  display: grid;
+  gap: 28px;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+}
+
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  display: flex;
+  flex-direction: column;
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card-hover); }
+.card img { height: 210px; width: 100%; object-fit: cover; }
+.card-body { padding: 22px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+
+/* Room cards ---------------------------------------------------------- */
+.room-card .card-body { gap: 14px; }
+.room-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.room-price { text-align: right; white-space: nowrap; }
+.room-price strong { font-family: var(--font-display); font-size: 1.35rem; color: var(--blue-900); }
+.room-price span { display: block; font-size: 0.78rem; color: var(--gray-500); }
+
+.room-specs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 14px;
+  font-size: 0.88rem;
+  color: var(--gray-700);
+}
+.room-specs li { display: flex; align-items: center; gap: 8px; }
+.room-specs svg { color: var(--blue-600); flex-shrink: 0; }
+
+.status {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.8rem; font-weight: 700; padding: 4px 12px; border-radius: 999px;
+  width: fit-content;
+}
+.status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; }
+.status.available { background: #E6F5EC; color: var(--green-600); }
+.status.available::before { background: var(--green-600); }
+.status.limited { background: #FBF0DF; color: var(--amber-600); }
+.status.limited::before { background: var(--amber-600); }
+.status.full { background: #FAE7E7; color: var(--red-600); }
+.status.full::before { background: var(--red-600); }
+
+.deposit-row { font-size: 0.85rem; color: var(--gray-500); border-top: 1px dashed var(--blue-200); padding-top: 12px; }
+
+/* Facility cards ------------------------------------------------------- */
+.facility-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 26px 20px;
+  text-align: left;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.facility-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-card-hover); }
+.facility-card .icon {
+  width: 48px; height: 48px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--blue-100); color: var(--blue-600);
+  border-radius: var(--radius-sm); margin-bottom: 14px;
+}
+.facility-card h3 { font-size: 1.02rem; margin-bottom: 4px; }
+.facility-card p { font-size: 0.86rem; color: var(--gray-500); }
+.facility-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
+
+/* Food cards ------------------------------------------------------------ */
+.food-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+.food-card .card-body { padding: 18px 20px; gap: 6px; }
+.food-time { font-size: 0.78rem; font-weight: 700; color: var(--blue-600); }
+
+/* Gallery ----------------------------------------------------------------- */
+.gallery-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
+.gallery-grid img { border-radius: var(--radius-md); height: 220px; object-fit: cover; box-shadow: var(--shadow-card); }
+
+/* --------------------------------------------------------------------------
+   8. RULES / POLICY LIST
+   Why: scannable list styling for the rules & policies sections.
+   -------------------------------------------------------------------------- */
+.policy-grid { grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+.policy-card { background: var(--white); border-radius: var(--radius-md); padding: 22px; box-shadow: var(--shadow-card); }
+.policy-card h3 { font-size: 1rem; margin-bottom: 8px; display: flex; align-items: center; gap: 10px; }
+.policy-card h3 svg { color: var(--blue-600); }
+.policy-card p { font-size: 0.9rem; color: var(--gray-500); }
+
+/* --------------------------------------------------------------------------
+   9. SAFETY SECTION (Girls PG)
+   Why: dedicated reassurance block — distinct dark-blue panel makes it
+   stand out from the surrounding light sections.
+   -------------------------------------------------------------------------- */
+.safety-panel {
+  background: var(--blue-900);
+  color: var(--blue-50);
+  border-radius: var(--radius-lg);
+  padding: 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+.safety-panel h2 { color: var(--white); }
+.safety-panel p { color: #CFE4F0; }
+.safety-list { display: flex; flex-direction: column; gap: 16px; }
+.safety-list li { display: flex; gap: 12px; align-items: flex-start; font-size: 0.95rem; }
+.safety-list svg { color: #7FCBA6; flex-shrink: 0; margin-top: 2px; }
+@media (max-width: 860px) { .safety-panel { grid-template-columns: 1fr; padding: 32px; } }
+
+/* --------------------------------------------------------------------------
+   10. ENQUIRY / BOOKING FORM
+   Why: one accessible form pattern reused for the booking forms on the
+   Boys and Girls pages, and the contact form on Home.
+   -------------------------------------------------------------------------- */
+.form-panel {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-card);
+}
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field.full { grid-column: 1 / -1; }
+.field label { font-size: 0.85rem; font-weight: 700; color: var(--blue-900); }
+.field input, .field select, .field textarea {
+  font-family: var(--font-body);
+  padding: 12px 14px;
+  border: 1.5px solid var(--blue-200);
+  border-radius: var(--radius-sm);
+  background: var(--blue-50);
+  font-size: 0.95rem;
+  color: var(--gray-700);
+}
+.field input:focus, .field select:focus, .field textarea:focus { border-color: var(--blue-600); background: var(--white); }
+.form-note { font-size: 0.82rem; color: var(--gray-500); margin-top: 14px; }
+.form-success {
+  display: none;
+  background: #E6F5EC; color: var(--green-600);
+  padding: 14px 18px; border-radius: var(--radius-sm);
+  font-weight: 700; font-size: 0.9rem; margin-bottom: 18px;
+}
+.form-success.show { display: block; }
+@media (max-width: 700px) { .form-grid { grid-template-columns: 1fr; } .form-panel { padding: 26px; } }
+
+/* --------------------------------------------------------------------------
+   11. MAP / LOCATION
+   Why: consistent framed embed for the Google Maps section.
+   -------------------------------------------------------------------------- */
+.map-frame {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  border: 6px solid var(--white);
+}
+.map-frame iframe { width: 100%; height: 380px; border: 0; display: block; }
+.location-details { display: flex; flex-direction: column; gap: 18px; }
+.location-details .detail-row { display: flex; gap: 14px; align-items: flex-start; }
+.location-details svg { color: var(--blue-600); flex-shrink: 0; margin-top: 3px; }
+.location-details strong { color: var(--blue-900); display: block; }
+
+/* --------------------------------------------------------------------------
+   12. FOOTER
+   Why: consistent contact + sitemap block across all pages; PG name,
+   address and phone live here in one clearly labelled place to edit.
+   -------------------------------------------------------------------------- */
+.site-footer { background: var(--blue-900); color: #CFE4F0; padding: 60px 0 24px; }
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 40px;
+  padding-bottom: 36px;
+  border-bottom: 1px solid rgba(255,255,255,0.14);
+}
+.footer-grid h4 { color: var(--white); font-size: 0.95rem; margin-bottom: 16px; font-family: var(--font-body); }
+.footer-grid ul { display: flex; flex-direction: column; gap: 10px; font-size: 0.9rem; }
+.footer-grid ul a:hover { color: var(--white); }
+.footer-brand { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+.footer-brand img { width: 36px; height: 36px; border-radius: 8px; }
+.footer-brand span { font-family: var(--font-display); font-size: 1.1rem; color: var(--white); }
+.footer-bottom {
+  display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px;
+  padding-top: 20px; font-size: 0.82rem; color: #9FC1D3;
+}
+@media (max-width: 860px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 520px) { .footer-grid { grid-template-columns: 1fr; } }
+
+/* --------------------------------------------------------------------------
+   13. FLOATING WHATSAPP / CALL BUTTONS
+   Why: required persistent quick-contact actions, fixed to viewport on
+   every page, positioned clear of mobile safe areas.
+   -------------------------------------------------------------------------- */
+.float-actions {
+  position: fixed;
+  right: 22px;
+  bottom: calc(22px + env(safe-area-inset-bottom, 0px));
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  z-index: 200;
+}
+.float-btn {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 8px 20px rgba(11,59,84,0.28);
+  color: var(--white);
+  transition: transform 0.15s ease;
+}
+.float-btn:hover { transform: scale(1.08); }
+.float-btn.whatsapp { background: #25D366; }
+.float-btn.call { background: var(--blue-600); }
+
+/* --------------------------------------------------------------------------
+   14. PAGE HERO STRIP (used for section intros with breadcrumbs on
+   Boys/Girls pages)
+   -------------------------------------------------------------------------- */
+.tag-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 22px; }
+.tag {
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.35);
+  color: var(--white);
+  font-size: 0.82rem; font-weight: 600;
+  padding: 6px 14px; border-radius: 999px;
+}
