@@ -354,14 +354,54 @@ textarea:focus-visible, select:focus-visible {
 .facility-card p { font-size: 0.86rem; color: var(--gray-500); }
 .facility-grid { grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); }
 
+
 /* Food cards ------------------------------------------------------------ */
 .food-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
 .food-card .card-body { padding: 18px 20px; gap: 6px; }
 .food-time { font-size: 0.78rem; font-weight: 700; color: var(--blue-600); }
-
+ 
+/* Food highlight pills — short callouts under the meal cards (e.g. non-veg
+   days, lunch box) that deserve more emphasis than plain body text. */
+.food-highlights { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 30px; }
+.highlight-item {
+  display: flex; align-items: center; gap: 10px;
+  background: var(--white);
+  border: 1.5px solid var(--blue-200);
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--blue-900);
+  box-shadow: var(--shadow-card);
+}
+.highlight-item svg { color: var(--green-600); flex-shrink: 0; }
 /* Gallery ----------------------------------------------------------------- */
 .gallery-grid { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px; }
 .gallery-grid img { border-radius: var(--radius-md); height: 220px; object-fit: cover; box-shadow: var(--shadow-card); }
+
+/* Gallery carousel — auto-advancing slideshow (one photo at a time) used on
+   the Boys and Girls Gallery sections; script.js swaps the .active class. */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 460px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-card);
+  background: var(--blue-100);
+}
+.carousel img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease;
+}
+.carousel img.active { opacity: 1; }
+@media (max-width: 700px) { .carousel { height: 300px; } }
+@media (prefers-reduced-motion: reduce) { .carousel img { transition: none; } }
 
 /* --------------------------------------------------------------------------
    8. RULES / POLICY LIST
