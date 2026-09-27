@@ -43,13 +43,39 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
-  /* ------------------------------------------------------------------------
-     3. ENQUIRY / BOOKING FORM HANDLING
-     Why: the site has no backend yet, so form submissions are intercepted
-     here and shown as a friendly on-page confirmation instead of a real
-     network call. Replace the marked section with a fetch() to your
-     booking API or a service like Formspree when one is ready.
+ /* ------------------------------------------------------------------------
+     3. ENQUIRY / BOOKING FORM → WHATSAPP
+     Why: the site has no backend, so instead of silently doing nothing,
+     submitting a form opens WhatsApp in a new tab with the visitor's
+     details pre-filled as a message to the PG's number. The visitor just
+     has to tap Send in WhatsApp to complete the enquiry.
+     To switch to email/SMS/a real backend later, replace the body of this
+     submit handler with your own fetch() call.
      ------------------------------------------------------------------------ */
+  var WHATSAPP_NUMBER = "919876543210"; // ---- CUSTOMIZE: your WhatsApp business number (country code, no + or spaces) ----
+
+  var FORM_FIELD_LABELS = {
+    name: "Name",
+    phone: "Phone",
+    email: "Email",
+    roomType: "Room Type",
+    moveInDate: "Preferred Move-in Date",
+    message: "Message"
+  };
+
+  function buildWhatsAppMessage(form) {
+    var data = new FormData(form);
+    var pageLabel = document.title.split("|")[0].trim();
+    var lines = ["New enquiry from the " + pageLabel + " website:"];
+    Object.keys(FORM_FIELD_LABELS).forEach(function (key) {
+      var value = data.get(key);
+      if (value) {
+        lines.push(FORM_FIELD_LABELS[key] + ": " + value);
+      }
+    });
+    return lines.join("\n");
+  }
+
   document.querySelectorAll("form[data-enquiry-form]").forEach(function (form) {
     form.addEventListener("submit", function (event) {
       event.preventDefault();
@@ -59,12 +85,12 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      // ---- CUSTOMIZE: send form data to your backend / email service here ----
-      // Example:
-      // fetch("https://your-api.example.com/enquiries", {
-      //   method: "POST",
-      //   body: new FormData(form)
-      // });
+      var message = buildWhatsAppMessage(form);
+      var whatsappUrl = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+      window.open(whatsappUrl, "_blank", "noopener");
+						  
+								   
+			
 
       var successBox = form.parentElement.querySelector(".form-success");
       if (successBox) {
@@ -75,6 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
       form.reset();
     });
   });
+
 
   /* ------------------------------------------------------------------------
      4. ROOM "ENQUIRE NOW" QUICK-FILL
