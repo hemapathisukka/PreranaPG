@@ -93,7 +93,27 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   /* ------------------------------------------------------------------------
-     5. STICKY HEADER SHADOW ON SCROLL
+     5. GALLERY CAROUSEL
+     Why: the Boys and Girls Gallery sections show one photo at a time,
+     auto-advancing every few seconds, instead of a static grid. Skips the
+     auto-advance (but still shows the first photo) if the visitor's
+     system prefers reduced motion.
+     ------------------------------------------------------------------------ */
+  var prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  document.querySelectorAll("[data-carousel]").forEach(function (carousel) {
+    var slides = carousel.querySelectorAll("img");
+    if (slides.length < 2 || prefersReducedMotion) return;
+
+    var current = 0;
+    setInterval(function () {
+      slides[current].classList.remove("active");
+      current = (current + 1) % slides.length;
+      slides[current].classList.add("active");
+    }, 3500);
+  });
+
+  /* ------------------------------------------------------------------------
+     6. STICKY HEADER SHADOW ON SCROLL
      Why: adds a subtle shadow once the page scrolls, so the sticky nav
      reads as "lifted" above content instead of blending into it.
      ------------------------------------------------------------------------ */
