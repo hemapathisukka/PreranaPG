@@ -13,12 +13,12 @@
    -------------------------------------------------------------------------- */
 :root {
   /* Brand palette — light blue & white primary theme, dark blue accent */
-  --blue-50:  #EAF4EE;
-  --blue-100: #D5E8DC;
-  --blue-200: #B7D3C0;
-  --blue-600: #28734A;
-  --blue-700: #1E5C3A;
-  --blue-900: #123B28;
+   --blue-50:  #F3FFE8;
+   --blue-100: #DFFFBD;
+   --blue-200: #B8E986;
+   --blue-600: #76C442;
+   --blue-700: #5FAF2E;
+   --blue-900: #285C16;
 
   --white:    #FFFFFF;
   --gray-700: #3A4750;
