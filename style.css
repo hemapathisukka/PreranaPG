@@ -13,18 +13,20 @@
    -------------------------------------------------------------------------- */
 :root {
   /* Brand palette — light blue & white primary theme, dark blue accent */
-  --blue-50:  #EEF7EF;   /* page background wash (light green) */
-  --blue-100: #DCEFDF;   /* alternate section background (light green) */
-  --blue-200: #C3E2C8;   /* card borders, dividers (green tint) */
-  --blue-600: #1C6FA3;   /* primary accent — buttons, links, icons */
-  --blue-700: #155A85;   /* primary accent hover */
-  --blue-900: #0B3B54;   /* dark blue accent — headings, footer, nav bg */
+  --blue-50:  #EAF4EE;
+  --blue-100: #D5E8DC;
+  --blue-200: #B7D3C0;
+  --blue-600: #28734A;
+  --blue-700: #1E5C3A;
+  --blue-900: #123B28;
+
   --white:    #FFFFFF;
-  --gray-700: #3A4750;   /* body text */
-  --gray-500: #6B7A82;   /* muted/secondary text */
-  --green-600:#2F8F5B;   /* "available" status only — functional, not decorative */
-  --amber-600:#B4791F;   /* "limited" status only */
-  --red-600:  #B23A3A;   /* "full" status only */
+  --gray-700: #3A4750;
+  --gray-500: #6B7A82;
+
+  --green-600:#2F8F5B;
+  --amber-600:#B4791F;
+  --red-600:  #B23A3A;
 
   /* Typography — one serif for headlines (warmth/trust), one sans for UI */
   --font-display: "Fraunces", "Georgia", serif;
