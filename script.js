@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NESTPOINT PG — SHARED SCRIPT
+   Prerana PG — SHARED SCRIPT
    Loaded on index.html, boys.html and girls.html. Each block below is one
    small, independent feature — safe to delete any block without breaking
    the others.
