@@ -1,5 +1,5 @@
 /* ==========================================================================
-   NESTPOINT PG — SHARED STYLESHEET
+   Prerana PG — SHARED STYLESHEET
    Used by index.html, boys.html and girls.html.
    Organised in modules, each with a short note on why it exists, so the
    site is easy to re-skin later (swap the CUSTOMIZE tokens at the top).
@@ -13,9 +13,9 @@
    -------------------------------------------------------------------------- */
 :root {
   /* Brand palette — light blue & white primary theme, dark blue accent */
-  --blue-50:  #EAF5FC;   /* page background wash */
-  --blue-100: #D6EAF8;   /* alternate section background */
-  --blue-200: #BFE0F5;   /* card borders, dividers */
+  --blue-50:  #EEF7EF;   /* page background wash (light green) */
+  --blue-100: #DCEFDF;   /* alternate section background (light green) */
+  --blue-200: #C3E2C8;   /* card borders, dividers (green tint) */
   --blue-600: #1C6FA3;   /* primary accent — buttons, links, icons */
   --blue-700: #155A85;   /* primary accent hover */
   --blue-900: #0B3B54;   /* dark blue accent — headings, footer, nav bg */
