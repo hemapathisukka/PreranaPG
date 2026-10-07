@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
      To switch to email/SMS/a real backend later, replace the body of this
      submit handler with your own fetch() call.
      ------------------------------------------------------------------------ */
-  var WHATSAPP_NUMBER = "919876543210"; // ---- CUSTOMIZE: your WhatsApp business number (country code, no + or spaces) ----
+  var WHATSAPP_NUMBER = "918884913332"; // ---- CUSTOMIZE: your WhatsApp business number (country code, no + or spaces) ----
 
   var FORM_FIELD_LABELS = {
     name: "Name",
