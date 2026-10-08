@@ -155,4 +155,28 @@ document.addEventListener("DOMContentLoaded", function () {
     onScroll();
   }
 
+  /* ------------------------------------------------------------------------
+     7. CALL NUMBER PICKER
+     Why: the floating phone button opens a small list so visitors can choose
+     which of the two numbers to call. Closes on outside tap or Escape.
+     ------------------------------------------------------------------------ */
+  var callBtn = document.getElementById("callBtn");
+  var callMenu = document.getElementById("callMenu");
+  if (callBtn && callMenu) {
+    var setMenu = function (open) {
+      callMenu.hidden = !open;
+      callBtn.setAttribute("aria-expanded", open ? "true" : "false");
+    };
+    callBtn.addEventListener("click", function (e) {
+      e.stopPropagation();
+      setMenu(callMenu.hidden);
+    });
+    document.addEventListener("click", function (e) {
+      if (!callMenu.contains(e.target)) setMenu(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setMenu(false);
+    });
+  }
+
 });
