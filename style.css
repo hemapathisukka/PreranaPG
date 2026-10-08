@@ -555,3 +555,28 @@ textarea:focus-visible, select:focus-visible {
   font-size: 0.82rem; font-weight: 600;
   padding: 6px 14px; border-radius: 999px;
 }
+
+/* --------------------------------------------------------------------------
+   15. CALL NUMBER PICKER + FOOTER SOCIAL LINKS
+   -------------------------------------------------------------------------- */
+.call-wrap { position: relative; }
+button.float-btn { border: 0; cursor: pointer; }
+.call-menu {
+  position: absolute; right: 0; bottom: 70px; min-width: 230px;
+  background: var(--white); border: 1px solid var(--blue-200); border-radius: 14px;
+  box-shadow: 0 12px 30px rgba(11,59,84,0.22); padding: 12px;
+}
+.call-menu[hidden] { display: none; }
+.call-menu p { font-size: 0.8rem; color: var(--gray-500); margin-bottom: 6px; }
+.call-menu a {
+  display: block; margin-top: 6px; padding: 11px 14px; border-radius: 10px;
+  background: var(--blue-100); color: var(--blue-900); font-weight: 700;
+}
+.call-menu a:hover, .call-menu a:focus-visible { background: var(--blue-600); color: var(--white); }
+.social-links { display: flex; gap: 10px; margin-top: 16px; }
+.social-links a {
+  width: 38px; height: 38px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.12); color: var(--white); transition: background 0.15s;
+}
+.social-links a:hover { background: var(--blue-600); }
